@@ -21,7 +21,6 @@ def part_2(lines):
 	while(high <= top):
 
 		s = sum(lines[low : high])
-		#print(s)
 
 		if( low != 0 and  s > previous_sum ):
 			cpt += 1
@@ -36,7 +35,7 @@ def part_2(lines):
 
 def main():
 	with open("input.txt") as file:
-		lines = file.read().split("\n")
+		lines = file.read().rstrip().split("\n")
 	
 	lines = [int(i) for i in lines]
 

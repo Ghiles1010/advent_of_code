@@ -44,7 +44,7 @@ def part_2(lines):
 def main():
 
 	with open("input.txt") as file:
-		lines = file.read().split("\n")
+		lines = file.read().rstrip().split("\n")
 
 	part_1(lines)
 
