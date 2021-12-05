@@ -4,12 +4,10 @@ from copy import deepcopy
 def part_1(lines):
 
 	num_bits = len(lines[0])
-
 	infos = [{'0':0, '1':0} for _ in range(num_bits)]
 
 	
 	for line in lines:
-
 		idx = 0	
 		for bit in line:
 			if bit == '0' : infos[idx]['0'] = infos[idx]['0'] + 1
@@ -19,17 +17,14 @@ def part_1(lines):
 	most_used, least_used = "", ""
 
 	for d in infos:
-
 		if d['0'] > d['1'] : 
 			most_used += '0'
 			least_used += '1'
-
 		else : 
 			most_used += '1'
 			least_used += '0'
 
 	result = int(most_used, 2) * int(least_used, 2)
-
 	print(result)
 
 
@@ -40,36 +35,28 @@ def get_new_lines(lines, infos, chosen, position):
 
 	for num in lines:
 		if num[position] != chosen:
-
 			for i in range(position+1, len(num)) : 
 				infos[i][num[i]]-=1 
-
 		else :
 			new_lines.append(num)
-
+			
 	return new_lines
 
 
 
 def get_result(lines, infos, position, choose_bit):
-
 	if len(lines) == 1 : return int(lines[0], 2)
-
 	chosen = choose_bit(infos[position])
-
 	lines = get_new_lines(lines, infos, chosen, position)
-
 	return get_result(lines, infos, position+1, choose_bit)
 
 
 def part_2(lines):
 
 	num_bits = len(lines[0])
-
 	infos = [{'0':0, '1':0} for _ in range(num_bits)]
 
 	for line in lines:
-
 		idx = 0	
 		for bit in line:
 			if bit == '0' : infos[idx]['0'] = infos[idx].get('0', 0) + 1
@@ -92,7 +79,6 @@ def main():
 		lines = file.read().rstrip().split("\n")
 
 	part_1(lines)
-
 	part_2(lines)
 	
 

@@ -47,7 +47,6 @@ def main():
 		lines = file.read().rstrip().split("\n")
 
 	part_1(lines)
-
 	part_2(lines)
 	
 
