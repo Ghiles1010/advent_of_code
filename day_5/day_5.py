@@ -85,9 +85,6 @@ def main():
 	part_1(coord_list)
 	part_2(coord_list)
 
-	
-	
-
 
 if __name__ == "__main__":
 	main()
